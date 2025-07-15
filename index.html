@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年夏季休暇制度について</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            line-height: 1.8;
+            color: #2D4A4B;
+            background: #E8F4F5;
+            min-height: 100vh;
+        }
+
+        /* パスワード保護機能 */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(232, 244, 245, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .password-box {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(45, 74, 75, 0.1);
+            text-align: center;
+            border: 3px solid #5F9EA0;
+            max-width: 500px;
+        }
+
+        .password-box h2 {
+            color: #2D4A4B;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        .password-box input {
+            width: 350px;
+            padding: 18px;
+            border: 3px solid #5F9EA0;
+            border-radius: 8px;
+            font-size: 1.3em;
+            margin: 15px 0;
+            outline: none;
+            background: white;
+            color: #2D4A4B;
+        }
+
+        .password-box input:focus {
+            border-color: #2D4A4B;
+            background: white;
+        }
+
+        .password-box button {
+            background: #5F9EA0;
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 8px;
+            font-size: 1.3em;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .password-box button:hover {
+            background: #2D4A4B;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.unlocked {
+            display: block;
+        }
+
+        .slide {
+            max-width: 1200px;
+            margin: 25px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(45, 74, 75, 0.1);
+            border-left: 8px solid #5F9EA0;
+        }
+
+        .slide h1 {
+            font-size: 3.2em;
+            color: #2D4A4B;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #5F9EA0;
+            padding-bottom: 20px;
+        }
+
+        .slide h2 {
+            font-size: 2.6em;
+            color: #2D4A4B;
+            margin-bottom: 35px;
+            padding-left: 15px;
+            border-left: 6px solid #5F9EA0;
+        }
+
+        .slide h3 {
+            font-size: 2em;
+            color: #2D4A4B;
+            margin-bottom: 25px;
+        }
+
+        .slide p, .slide li {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            line-height: 1.9;
+            color: #2D4A4B;
+        }
+
+        .important-box {
+            background: #5F9EA0;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .important-box h3,
+        .important-box p,
+        .important-box li,
+        .important-box strong,
+        .important-box span {
+            color: white !important;
+        }
+
+        .info-box {
+            background: white;
+            border: 3px solid #5F9EA0;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            color: #2D4A4B;
+        }
+
+        .info-box h3,
+        .info-box p,
+        .info-box li,
+        .info-box strong,
+        .info-box span {
+            color: #2D4A4B !important;
+        }
+
+        .warning-box {
+            background: #2D4A4B;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .warning-box h3,
+        .warning-box p,
+        .warning-box li,
+        .warning-box strong,
+        .warning-box span {
+            color: white !important;
+        }
+
+        .period-box {
+            background: #1A365D;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .period-box h3,
+        .period-box p,
+        .period-box li,
+        .period-box strong,
+        .period-box span {
+            color: white !important;
+        }
+
+        .highlight {
+            background: #2D4A4B;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .department-section {
+            background: white;
+            border: 3px solid #5F9EA0;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 12px;
+        }
+
+        .department-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2D4A4B;
+            margin-bottom: 20px;
+            text-align: center;
+            background: #5F9EA0;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1.1em;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(45, 74, 75, 0.1);
+        }
+
+        .example-table th {
+            background: #5F9EA0;
+            color: white;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .example-table td {
+            padding: 12px 8px;
+            text-align: center;
+            border-bottom: 1px solid #DDD;
+            color: #2D4A4B;
+            background: white;
+        }
+
+        .example-table tr:nth-child(even) td {
+            background: #F8F9FA;
+        }
+
+        .example-table .existing-vacation {
+            background: #FFF5F5 !important;
+            color: #C53030 !important;
+            font-weight: bold;
+            border: 2px solid #FEB2B2;
+        }
+
+        .example-table .summer-vacation {
+            background: #F0FFF4 !important;
+            color: #2F855A !important;
+            font-weight: bold;
+            border: 2px solid #9AE6B4;
+        }
+
+        .count-check {
+            background: #F8F9FA;
+            border: 2px solid #5F9EA0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .count-check h4 {
+            color: #2D4A4B;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .count-check ul {
+            font-size: 1.2em;
+        }
+
+        .count-check li {
+            margin-bottom: 8px;
+            color: #2D4A4B;
+        }
+
+        .steps-box {
+            background: white;
+            border: 3px solid #5F9EA0;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .steps-box h4 {
+            color: #2D4A4B;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .steps-box ol {
+            font-size: 1.3em;
+            padding-left: 25px;
+        }
+
+        .steps-box li {
+            margin-bottom: 10px;
+            color: #2D4A4B;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 1.3em;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(45, 74, 75, 0.1);
+        }
+
+        table th {
+            background: #5F9EA0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        table td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #DDD;
+            color: #2D4A4B;
+            background: white;
+        }
+
+        table tr:nth-child(even) td {
+            background: #F8F9FA;
+        }
+
+        table tr:hover td {
+            background: #E2F7FA;
+        }
+
+        .calculation-table {
+            margin: 40px 0;
+            border: 4px solid #5F9EA0;
+        }
+
+        .calculation-table th {
+            background: #5F9EA0;
+            font-size: 1.3em;
+        }
+
+        .calculation-table .work-day {
+            background: #2D4A4B !important;
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .calculation-table .holiday {
+            background: #F8F9FA !important;
+            color: #718096 !important;
+            font-weight: bold;
+        }
+
+        .summary-box {
+            background: #2D4A4B;
+            color: white;
+            padding: 35px;
+            border-radius: 12px;
+            margin: 35px 0;
+            text-align: center;
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+
+        .summary-box h3,
+        .summary-box p,
+        .summary-box li,
+        .summary-box strong,
+        .summary-box span,
+        .summary-box .highlight {
+            color: white !important;
+        }
+
+        ul, ol {
+            padding-left: 35px;
+            margin-bottom: 25px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            color: #2D4A4B;
+        }
+
+        .flow-step {
+            background: white;
+            border: 3px solid #5F9EA0;
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2D4A4B;
+        }
+
+        .nursing-section {
+            background: white;
+            border: 2px solid #5F9EA0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .admin-section {
+            background: white;
+            border: 2px solid #5F9EA0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2D4A4B;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 35px 25px;
+                margin: 15px;
+            }
+            
+            .slide h1 {
+                font-size: 2.4em;
+            }
+            
+            .slide h2 {
+                font-size: 2em;
+            }
+            
+            .slide h3 {
+                font-size: 1.6em;
+            }
+            
+            .slide p, .slide li {
+                font-size: 1.2em;
+            }
+            
+            .password-box {
+                padding: 35px 25px;
+            }
+            
+            .password-box input {
+                width: 280px;
+                font-size: 1.1em;
+            }
+            
+            table {
+                font-size: 1.1em;
+            }
+            
+            table th, table td {
+                padding: 15px 8px;
+            }
+
+            .example-table {
+                font-size: 0.9em;
+            }
+            
+            .example-table th, .example-table td {
+                padding: 8px 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide {
+                padding: 25px 20px;
+            }
+            
+            .slide h1 {
+                font-size: 2em;
+            }
+            
+            .slide h2 {
+                font-size: 1.6em;
+            }
+            
+            .slide h3 {
+                font-size: 1.3em;
+            }
+            
+            .slide p, .slide li {
+                font-size: 1.1em;
+            }
+            
+            .password-box input {
+                width: 250px;
+            }
+            
+            table {
+                font-size: 1em;
+            }
+            
+            table th, table td {
+                padding: 12px 5px;
+            }
+
+            .example-table {
+                font-size: 0.8em;
+            }
+            
+            .example-table th, .example-table td {
+                padding: 6px 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- パスワード保護画面 -->
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-box">
+            <h2>🔒 認証が必要です</h2>
+            <input type="password" id="passwordInput" placeholder="Macのログインパスワードを入力" autocomplete="off">
+            <br>
+            <button onclick="checkPassword()">ログイン</button>
+        </div>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <div class="content" id="mainContent">
+        <!-- スライド1: タイトル・制度変更の背景 -->
+        <div class="slide">
+            <h1>2025年夏季休暇制度について</h1>
+            <h2>制度変更の背景</h2>
+            <div class="info-box">
+                <h3>🔄 従来の制度</h3>
+                <p>これまで当院では、他院のお盆休み相当分を<strong>9月・10月に別途設けて</strong>クリニックとしての夏季休業としていました。</p>
+            </div>
+            <div class="important-box">
+                <h3>🎯 2025年の新制度</h3>
+                <p>クリニック一斉休業を廃止し、各職員が<strong>個別に3日間の夏季休暇</strong>を取得する制度に変更します。</p>
+            </div>
+        </div>
+
+        <!-- スライド2: なぜ3日間なのか -->
+        <div class="slide">
+            <h2>なぜ3日間なのか？</h2>
+            <h3>📅 2025年お盆期間と当院休診日の関係</h3>
+            <table class="calculation-table">
+                <tr>
+                    <th>日付</th>
+                    <th>曜日</th>
+                    <th>お盆期間</th>
+                    <th>当院の状況</th>
+                    <th>判定</th>
+                </tr>
+                <tr>
+                    <td>8月13日</td>
+                    <td>水曜日</td>
+                    <td>お盆入り</td>
+                    <td>通常診療</td>
+                    <td class="work-day">診療日</td>
+                </tr>
+                <tr>
+                    <td>8月14日</td>
+                    <td>木曜日</td>
+                    <td>お盆期間</td>
+                    <td>定休日</td>
+                    <td class="holiday">もともと休診</td>
+                </tr>
+                <tr>
+                    <td>8月15日</td>
+                    <td>金曜日</td>
+                    <td>お盆期間</td>
+                    <td>通常診療</td>
+                    <td class="work-day">診療日</td>
+                </tr>
+                <tr>
+                    <td>8月16日</td>
+                    <td>土曜日</td>
+                    <td>お盆明け</td>
+                    <td>通常診療</td>
+                    <td class="work-day">診療日</td>
+                </tr>
+                <tr>
+                    <td>8月17日</td>
+                    <td>日曜日</td>
+                    <td>-</td>
+                    <td>定休日</td>
+                    <td class="holiday">もともと休診</td>
+                </tr>
+            </table>
+            <div class="summary-box">
+                お盆期間5日間のうち、実際の診療日は3日間<br>
+                <span class="highlight">水曜日・金曜日・土曜日</span>
+            </div>
+        </div>
+
+        <!-- スライド3: 提出方法の宣言 -->
+        <div class="slide">
+            <h2>提出方法</h2>
+            <div class="important-box">
+                <h3>📊 Googleスプレッドシートで一括管理</h3>
+                <p><strong>部署内で調整・確定 → まとめてシート提出</strong></p>
+                <p>個別申請ではなく、スプレッドシートによる一元管理で実施します</p>
+            </div>
+            <div class="period-box">
+                <h3>📅 休暇取得の希望対象となる期間</h3>
+                <p><strong>9月1日から11月30日まで</strong></p>
+                <p>（申請締切は8月31日、以降の変更は認めないので注意）</p>
+            </div>
+            <div class="warning-box">
+                <h3>⚠️ 申請締切ルール</h3>
+                <p><strong>申請締め切りを2025年8月31日とし、申請内容は8月31日時点のスプレッドシートの内容で判断します</strong></p>
+            </div>
+            <div class="info-box">
+                <h3>💡 簡単なテーブル作成</h3>
+                <p>複雑なスプレッドシートは不要。<strong>氏名・部署・日付</strong>の基本情報のみで構成してください。</p>
+            </div>
+        </div>
+
+        <!-- スライド4: 夏季休暇の基本情報 -->
+        <div class="slide">
+            <h2>夏季休暇の基本情報</h2>
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>内容</th>
+                </tr>
+                <tr>
+                    <td><strong>付与日数</strong></td>
+                    <td><span class="highlight">3日間</span></td>
+                </tr>
+                <tr>
+                    <td><strong>性質</strong></td>
+                    <td>年次有給休暇とは別の特別休暇</td>
+                </tr>
+                <tr>
+                    <td><strong>取得期限</strong></td>
+                    <td><span class="highlight">2025年11月30日まで</span></td>
+                </tr>
+                <tr>
+                    <td><strong>申請締切</strong></td>
+                    <td><span class="highlight">2025年8月31日</span></td>
+                </tr>
+                <tr>
+                    <td><strong>連続取得</strong></td>
+                    <td>休診日（木曜・日曜）とくっつけて取得可能</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- スライド5: 重要な優先原則 -->
+        <div class="slide">
+            <h2>重要な優先原則</h2>
+            <div class="important-box">
+                <h3>🚨 絶対的な優先原則</h3>
+                <p><strong>先に院長の許可を得て確定している休暇が優先</strong></p>
+                <p>（有給休暇・欠勤・夏季休暇を問わず）</p>
+            </div>
+            <div class="warning-box">
+                <h3>⚠️ 双方向ルール</h3>
+                <p><strong>夏季休暇希望時</strong>：既存の有給・欠勤があれば制限対象</p>
+                <p><strong>有給・欠勤希望時</strong>：既存の夏季休暇があれば制限対象</p>
+                <p>どちらの方向でも同じルールで運用します</p>
+            </div>
+            <div class="info-box">
+                <h3>📋 基本制限</h3>
+                <ul>
+                    <li><strong>看護側・事務側それぞれで同日2人まで</strong></li>
+                    <li>看護側2人 + 事務側2人 = 同日最大4人まで取得可能</li>
+                    <li><strong>確定している休暇が絶対的に優先</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- スライド6: 具体的な適用例 -->
+        <div class="slide">
+            <h2>具体的な適用例</h2>
+            
+            <div class="nursing-section">
+                <div class="section-title">🩺 看護側の例</div>
+                <table>
+                    <tr>
+                        <th>ケース</th>
+                        <th>状況</th>
+                        <th>判定</th>
+                    </tr>
+                    <tr>
+                        <td>看護1</td>
+                        <td>看護師A（夏季休暇）のみ</td>
+                        <td class="work-day">✅ OK</td>
+                    </tr>
+                    <tr>
+                        <td>看護2</td>
+                        <td>看護師A（確定済み有給） + 看護師B（夏季休暇希望）</td>
+                        <td class="work-day">✅ OK</td>
+                    </tr>
+                    <tr>
+                        <td>看護3</td>
+                        <td>看護師A（確定済み夏季休暇） + 看護師B（有給希望）</td>
+                        <td class="work-day">✅ OK</td>
+                    </tr>
+                    <tr>
+                        <td>看護4</td>
+                        <td>看護師A（確定済み有給） + 看護師B（確定済み夏季休暇） + 看護師C（新規希望）</td>
+                        <td class="holiday">❌ NG - 3人目は一切不可</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="admin-section">
+                <div class="section-title">💼 事務側の例</div>
+                <table>
+                    <tr>
+                        <th>ケース</th>
+                        <th>状況</th>
+                        <th>判定</th>
+                    </tr>
+                    <tr>
+                        <td>事務1</td>
+                        <td>事務員A（夏季休暇）のみ</td>
+                        <td class="work-day">✅ OK</td>
+                    </tr>
+                    <tr>
+                        <td>事務2</td>
+                        <td>事務員A（確定済み夏季休暇） + 事務員B（有給希望）</td>
+                        <td class="work-day">✅ OK</td>
+                    </tr>
+                    <tr>
+                        <td>事務3</td>
+                        <td>事務員A（確定済み有給） + 事務員B（夏季休暇希望）</td>
+                        <td class="work-day">✅ OK</td>
+                    </tr>
+                    <tr>
+                        <td>事務4</td>
+                        <td>事務員A（確定済み夏季休暇） + 事務員B（確定済み有給） + 事務員C（新規希望）</td>
+                        <td class="holiday">❌ NG - 3人目は一切不可</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- スライド7: 看護師用スプレッドシート例 -->
+        <div class="slide">
+            <h2>看護師用スプレッドシート例</h2>
+            <div class="department-section">
+                <div class="department-title">🩺 看護師用テーブル</div>
+                <div class="info-box">
+                    <p><strong>赤色背景</strong>：確定済み有給休暇　<strong>緑色背景</strong>：夏季休暇</p>
+                </div>
+                <table class="example-table">
+                    <tr>
+                        <th>職員名</th>
+                        <th>9/1<br>(月)</th>
+                        <th>9/2<br>(火)</th>
+                        <th>9/3<br>(水)</th>
+                        <th>9/5<br>(金)</th>
+                        <th>9/8<br>(月)</th>
+                        <th>9/9<br>(火)</th>
+                        <th>9/10<br>(水)</th>
+                        <th>9/12<br>(金)</th>
+                        <th>備考</th>
+                    </tr>
+                    <tr>
+                        <td>看護師A</td>
+                        <td>-</td>
+                        <td class="existing-vacation">確定済み有給</td>
+                        <td>-</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>-</td>
+                        <td>有給1日+夏季2日</td>
+                    </tr>
+                    <tr>
+                        <td>看護師B</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>-</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>夏季3日</td>
+                    </tr>
+                    <tr>
+                        <td>看護師C</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="existing-vacation">確定済み有給</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>-</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>有給1日+夏季2日</td>
+                    </tr>
+                    <tr>
+                        <td>看護師D</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>夏季1日（残り2日は後日）</td>
+                    </tr>
+                </table>
+                <div class="count-check">
+                    <h4>📊 カウント確認</h4>
+                    <ul>
+                        <li><strong>9/1（月）</strong>: 看護師B（夏季）= 1人 ✅</li>
+                        <li><strong>9/2（火）</strong>: 看護師A（有給）= 1人 ✅</li>
+                        <li><strong>9/3（水）</strong>: 看護師B（夏季）= 1人 ✅</li>
+                        <li><strong>9/5（金）</strong>: 看護師A（夏季）= 1人 ✅</li>
+                        <li><strong>9/8（月）</strong>: 看護師C（有給）= 1人 ✅</li>
+                        <li><strong>9/9（火）</strong>: 看護師C（夏季）= 1人 ✅</li>
+                        <li><strong>9/10（水）</strong>: 看護師A（夏季）= 1人 ✅</li>
+                        <li><strong>9/12（金）</strong>: 看護師C（夏季）+ 看護師D（夏季）= 2人 ✅</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド8: 事務員用スプレッドシート例 -->
+        <div class="slide">
+            <h2>事務員用スプレッドシート例</h2>
+            <div class="department-section">
+                <div class="department-title">💼 事務員用テーブル</div>
+                <div class="info-box">
+                    <p><strong>赤色背景</strong>：確定済み有給休暇　<strong>緑色背景</strong>：夏季休暇</p>
+                </div>
+                <table class="example-table">
+                    <tr>
+                        <th>職員名</th>
+                        <th>9/1<br>(月)</th>
+                        <th>9/2<br>(火)</th>
+                        <th>9/3<br>(水)</th>
+                        <th>9/5<br>(金)</th>
+                        <th>9/8<br>(月)</th>
+                        <th>9/9<br>(火)</th>
+                        <th>9/10<br>(水)</th>
+                        <th>9/12<br>(金)</th>
+                        <th>備考</th>
+                    </tr>
+                    <tr>
+                        <td>事務員A</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>-</td>
+                        <td class="existing-vacation">確定済み有給</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>有給1日+夏季3日</td>
+                    </tr>
+                    <tr>
+                        <td>事務員B</td>
+                        <td>-</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td class="summer-vacation">夏季休暇</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>夏季3日</td>
+                    </tr>
+                    <tr>
+                        <td>事務員C</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="existing-vacation">確定済み有給</td>
+                        <td>-</td>
+                        <td>有給1日（夏季は後日）</td>
+                    </tr>
+                </table>
+                <div class="count-check">
+                    <h4>📊 カウント確認</h4>
+                    <ul>
+                        <li><strong>9/1（月）</strong>: 事務員A（夏季）= 1人 ✅</li>
+                        <li><strong>9/2（火）</strong>: 事務員B（夏季）= 1人 ✅</li>
+                        <li><strong>9/3（水）</strong>: 事務員A（有給）= 1人 ✅</li>
+                        <li><strong>9/5（金）</strong>: 事務員A（夏季）= 1人 ✅</li>
+                        <li><strong>9/8（月）</strong>: 事務員B（夏季）= 1人 ✅</li>
+                        <li><strong>9/9（火）</strong>: 事務員B（夏季）= 1人 ✅</li>
+                        <li><strong>9/10（水）</strong>: 事務員C（有給）= 1人 ✅</li>
+                        <li><strong>9/12（金）</strong>: 事務員A（夏季）= 1人 ✅</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド9: スプレッドシート作成手順 -->
+        <div class="slide">
+            <h2>スプレッドシート作成手順</h2>
+            <div class="steps-box">
+                <h4>🔧 Googleスプレッドシートでの作成手順</h4>
+                <ol>
+                    <li><strong>新規スプレッドシート作成</strong><br>Google Drive で「新規」→「Googleスプレッドシート」</li>
+                    <li><strong>ファイル名設定</strong><br>「2025年夏季休暇管理」に設定</li>
+                    <li><strong>シート構成</strong><br>シート1: 「看護師」にリネーム<br>シート2: 「事務員」を新規作成</li>
+                    <li><strong>色分けルール適用</strong><br>確定済み有給：薄い赤色<br>夏季休暇：薄い緑色</li>
+                    <li><strong>セルの書式設定</strong><br>該当セルを選択→「書式」→「塗りつぶしの色」</li>
+                </ol>
+            </div>
+            <div class="warning-box">
+                <h3>⚠️ 作成時の注意点</h3>
+                <ul>
+                    <li><strong>各部署・各日</strong>：最大2人までを必ず確認</li>
+                    <li><strong>確定済み休暇</strong>：必ず赤色で明記</li>
+                    <li><strong>重複エラー</strong>：3人以上の日は調整必須</li>
+                    <li><strong>全職員記載</strong>：職員名の漏れがないよう確認</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- スライド10: 申請締切ルール -->
+        <div class="slide">
+            <h2>申請締切ルール</h2>
+            <div class="important-box">
+                <h3>📅 申請締切と判定基準</h3>
+                <p><strong>申請締め切りを2025年8月31日とし、申請内容は8月31日時点のスプレッドシートの内容で判断します</strong></p>
+            </div>
+            <table>
+                <tr>
+                    <th>8月31日時点の状況</th>
+                    <th>判定</th>
+                    <th>対応</th>
+                </tr>
+                <tr>
+                    <td>重複がない日</td>
+                    <td class="work-day">そのままOK</td>
+                    <td>該当日の夏季休暇が確定</td>
+                </tr>
+                <tr>
+                    <td>重複がクリアされていない日</td>
+                    <td class="holiday">その日の全員NG</td>
+                    <td>該当日の全員が夏季休暇取得不可</td>
+                </tr>
+                <tr>
+                    <td>スプレッドシート自体が未作成</td>
+                    <td class="holiday">全員NG</td>
+                    <td>全員が夏季休暇を希望しないと判断</td>
+                </tr>
+            </table>
+            <div class="warning-box">
+                <h3>⚠️ 重要な注意</h3>
+                <p><strong>8月31日時点で問題があっても、延長や再調整は一切認めません</strong></p>
+                <p>十分な時間があるため、必ず期限内に完了させてください</p>
+            </div>
+        </div>
+
+        <!-- スライド11: 申請スケジュール -->
+        <div class="slide">
+            <h2>申請スケジュール</h2>
+            <div class="flow-step">
+                <strong>7月中：</strong>制度周知・各部署での初期検討
+            </div>
+            <div class="flow-step">
+                <strong>8月中：</strong>部署内で調整・スプレッドシート作成
+            </div>
+            <div class="flow-step">
+                <strong>8月31日：</strong>スプレッドシート提出・確定
+            </div>
+            <div class="flow-step">
+                <strong>9月上旬：</strong>最終承認・全職員通知
+            </div>
+            <div class="warning-box">
+                <h3>⚠️ 絶対的な期限</h3>
+                <p><strong>8月31日を過ぎた提出は一切受け付けません</strong></p>
+                <p>十分な時間があるため、必ず間に合うように調整してください</p>
+            </div>
+        </div>
+
+        <!-- スライド12: よくある質問 -->
+        <div class="slide">
+            <h2>よくある質問</h2>
+            <table>
+                <tr>
+                    <th>質問</th>
+                    <th>回答</th>
+                </tr>
+                <tr>
+                    <td>休診日とくっつけて取得できる？</td>
+                    <td><span class="highlight">可能</span> - 休診日との組み合わせで長期休暇も実現</td>
+                </tr>
+                <tr>
+                    <td>有給休暇の残日数に影響する？</td>
+                    <td><span class="highlight">影響なし</span> - 別制度のため残日数は変わらず</td>
+                </tr>
+                <tr>
+                    <td>8月31日を過ぎてからの調整は？</td>
+                    <td><span class="highlight">不可</span> - 期限後の調整は一切認めない</td>
+                </tr>
+                <tr>
+                    <td>分割して取得できる？</td>
+                    <td><span class="highlight">可能</span> - 1日ずつ分けて取得も可</td>
+                </tr>
+                <tr>
+                    <td>スプレッドシートが複雑で作れない場合は？</td>
+                    <td><span class="highlight">簡単な形式で可</span> - 氏名・部署・日付のみで十分</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- スライド13: 最終確認・提出 -->
+        <div class="slide">
+            <h2>最終確認・提出</h2>
+            <div class="important-box">
+                <h3>🎯 最終指示</h3>
+                <p><strong>各部署でスプレッドシートを作成し、8月31日までに院長に提出</strong></p>
+                <p>部署内で十分に調整・確定してから提出してください</p>
+            </div>
+            <div class="info-box">
+                <h3>📋 提出前チェックポイント</h3>
+                <ul>
+                    <li><strong>同日同部署2人以内</strong>の制限を確認</li>
+                    <li><strong>既存の確定済み休暇</strong>を正確に反映</li>
+                    <li><strong>重複エラー</strong>が完全に解決済み</li>
+                    <li><strong>全職員の夏季休暇</strong>が明記されている</li>
+                </ul>
+            </div>
+            <div class="warning-box">
+                <h3>⚠️ 提出後の変更不可</h3>
+                <p><strong>提出後の変更・追加・削除は一切認めません</strong></p>
+                <p>提出前に必ず部署内で最終確認を行ってください</p>
+            </div>
+            <div class="summary-box">
+                📊 提出先：院長<br>
+                📅 期限：8月31日<br>
+                📋 対象期間：9月1日～11月30日<br>
+                ⏰ 十分な時間があります - 必ず間に合わせてください
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // パスワード認証機能
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const correctPasswords = ['ap818', 'AP818'];
+            
+            if (correctPasswords.includes(password)) {
+                document.getElementById('passwordOverlay').style.display = 'none';
+                document.getElementById('mainContent').classList.add('unlocked');
+            } else {
+                alert('パスワードが間違っています。');
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
+            }
+        }
+
+        // Enterキーでパスワード認証
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // ページロード時にパスワード入力欄にフォーカス
+        window.addEventListener('load', function() {
+            document.getElementById('passwordInput').focus();
+        });
+    </script>
+</body>
+</html>
